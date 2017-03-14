@@ -1,0 +1,11 @@
+# app
+node_modules
+typings
+*.log
+build/*
+
+# keep all .gitkeep files
+!**/.gitkeep
+
+# OSX
+.DS_Store

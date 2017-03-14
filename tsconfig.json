@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"allowJs": false,
+		"strictNullChecks": true,
+		"outDir": "./build",
+		"types": [
+			"node"
+		]
+	},
+	"exclude": [
+		"node_modules",
+		"typings"
+	]
+}
