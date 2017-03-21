@@ -7,4 +7,5 @@ import * as IndexCtrl from "./controllers/IndexCtrl"
 export function set(app: express.Express) {
 	app.get('/', IndexCtrl.index);
 	app.get('/:name', IndexCtrl.hello);
+	app.post('/', IndexCtrl.create);
 }
