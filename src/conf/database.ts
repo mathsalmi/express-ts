@@ -1,14 +1,14 @@
-declare interface dbconfig {
+interface dbconfig {
 	host: string,
 	username: string,
 	password: string,
 	database: string,
-	dialect: string,
+	dialect: 'mysql' | 'mssql' | 'postgres',
 
 	[key: string]: string
 }
 
-const conf: dbconfig = {
+const db: dbconfig = {
 	host: 'localhost',
 	username: 'root',
 	password: 'root',
@@ -16,4 +16,4 @@ const conf: dbconfig = {
 	dialect: 'mysql'
 }
 
-export = conf;
+export = db
