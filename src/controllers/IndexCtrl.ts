@@ -42,3 +42,10 @@ export async function create(req: express.Request, res: express.Response) {
 		res.send(e)
 	}
 }
+
+/**
+ * Say hello world
+ */
+export function world(req: express.Request, res: express.Response) {
+	res.status(200).send('Você está autenticado');
+}

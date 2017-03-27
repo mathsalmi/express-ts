@@ -14,14 +14,20 @@
 		"@types/body-parser": "^1.16.0",
 		"@types/sequelize": "^4.0.46",
 		"@types/cors": "^2.8.1",
+		"@types/passport": "^0.3.3",
+		"@types/passport-local": "^1.0.29",
+		"@types/express-session": "^0.0.32",
 		"concurrently": "^3.4.0",
 		"nodemon": "^1.11.0"
 	},
 	"dependencies": {
 		"express": "^4.14.1",
+		"express-session": "^1.15.1",
 		"body-parser": "^1.17.1",
 		"mysql": "^2.13.0",
 		"sequelize": "^3.30.2",
-		"cors": "^2.8.1"
+		"cors": "^2.8.1",
+		"passport": "^0.3.2",
+		"passport-local": "^1.0.0"
 	}
 }
