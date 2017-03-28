@@ -1,6 +1,7 @@
 import * as express from "express"
 import * as passport from "passport"
 import { Strategy as LocalStrategy } from "passport-local"
+import * as bcrypt from "bcrypt"
 import * as user from "../entities/User"
 
 /**
@@ -56,12 +57,18 @@ export const strategies: passport.Strategy[] = [
 			const u = await user.User.findOne({
 				where: {
 					username: username,
-					password: password
+					active: true
 				}
-			})
+			});
 
 			if (u != null) {
-				done(null, u);
+				const saltRounds = 10;
+				const encryptedPassword = bcrypt.hashSync(password, saltRounds);
+
+				if (bcrypt.compareSync(password, encryptedPassword)) {
+					done(null, u);
+					return;
+				}
 			}
 		} catch (e) {
 			console.log(e)

@@ -17,6 +17,7 @@
 		"@types/passport": "^0.3.3",
 		"@types/passport-local": "^1.0.29",
 		"@types/express-session": "^0.0.32",
+		"@types/bcrypt": "^1.0.0",
 		"concurrently": "^3.4.0",
 		"nodemon": "^1.11.0"
 	},
@@ -28,6 +29,7 @@
 		"sequelize": "^3.30.2",
 		"cors": "^2.8.1",
 		"passport": "^0.3.2",
-		"passport-local": "^1.0.0"
+		"passport-local": "^1.0.0",
+		"bcrypt": "^1.0.2"
 	}
 }
