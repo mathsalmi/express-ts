@@ -1,8 +1,9 @@
 import * as express from "express"
 import * as passport from "passport"
 import { Strategy as LocalStrategy } from "passport-local"
-import * as bcrypt from "bcrypt"
 import * as user from "../entities/User"
+import * as userService from "../services/UserService"
+import * as bcrypt from "bcrypt"
 
 /**
  * Serialize user
@@ -62,9 +63,7 @@ export const strategies: passport.Strategy[] = [
 			});
 
 			if (u != null) {
-				const saltRounds = 10;
-				const encryptedPassword = bcrypt.hashSync(password, saltRounds);
-
+				const encryptedPassword = userService.genPassword(password);
 				if (bcrypt.compareSync(password, encryptedPassword)) {
 					done(null, u);
 					return;

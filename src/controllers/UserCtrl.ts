@@ -1,6 +1,7 @@
 import * as express from "express"
 import * as user from "../entities/User"
 import * as connect from "../conf/connection"
+import * as userService from "../services/UserService"
 
 /**
  * List all users
@@ -20,6 +21,8 @@ export async function list(req: express.Request, res: express.Response) {
 export async function create(req: express.Request, res: express.Response) {
 	try {
 		const u: user.UserAttribute = req.body;
+		u.password = userService.genPassword(<string>u.password);
+
 		const nu = await user.User.create(u);
 		res.json();
 	} catch (e) {
@@ -52,20 +55,31 @@ export async function deleteOne(req: express.Request, res: express.Response) {
 export async function edit(req: express.Request, res: express.Response) {
 	try {
 		const id = req.params.id;
-		const d: user.UserAttribute = req.body;
-		const r = await user.User.update(d, {
+		const sent: user.UserAttribute = req.body;
+
+		const dto: user.UserAttribute = {
+			username: sent.username,
+			active: sent.active
+		}
+
+		if (sent.password != null) {
+			dto.password = userService.genPassword(sent.password);
+		}
+
+		const response = await user.User.update(dto, {
 			where: {
 				id: id
 			}
 		});
 
-		if (r[0] > 0) {
+		if (response[0] > 0) {
 			res.json();
 			return;
 		}
 
 		res.status(500).json();
 	} catch (e) {
+		console.error(e)
 		res.status(500).json();
 	}
 }
