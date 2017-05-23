@@ -8,3 +8,4 @@ Sample of a webapp written in TypeScript using Express framework.
 - [Express](http://expressjs.com)
 - [Sequelize](http://sequelizejs.com)
 - [Passport](http://passportjs.org)
+- [Mustache](https://mustache.github.io)
