@@ -4,7 +4,7 @@
 	"description": "Express Arch",
 	"main": "app.js",
 	"scripts": {
-		"dev": "tsc && node build/app.js"
+		"dev": "tsc && rm -rf build/views && cp -r src/views build/views && node build/app.js"
 	},
 	"author": "Matheus Salmi",
 	"license": "MIT",
@@ -30,6 +30,7 @@
 		"cors": "^2.8.1",
 		"passport": "^0.3.2",
 		"passport-local": "^1.0.0",
-		"bcrypt": "^1.0.2"
+		"bcrypt": "^1.0.2",
+		"mustache-express": "^1.2.4"
 	}
 }

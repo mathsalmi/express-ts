@@ -2,6 +2,7 @@ import * as express from "express"
 import * as passport from "passport"
 import * as auth from "./conf/authentication"
 import * as UserCtrl from "./controllers/UserCtrl"
+import * as TestCtrl from "./controllers/TestCtrl"
 
 /**
  * Set routes to the app instance
@@ -15,4 +16,7 @@ export function set(app: express.Express, passport: passport.Passport) {
 	app.post('/users', auth.requireLogin, UserCtrl.create);
 	app.put('/users/:id', auth.requireLogin, UserCtrl.edit);
 	app.delete('/users/:id', auth.requireLogin, UserCtrl.deleteOne);
+
+	// template testing
+	app.get('/test/:name', TestCtrl.index);
 }

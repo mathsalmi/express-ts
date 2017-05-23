@@ -5,6 +5,7 @@ import * as cors from "cors"
 import * as session from "express-session"
 import * as passport from "passport"
 import * as auth from "./conf/authentication"
+const mustache = require('mustache-express');
 
 // constants
 const PORT = process.env.PORT || 3000;
@@ -38,6 +39,11 @@ for (const strategy of auth.strategies) {
 
 // routes
 routes.set(app, passport);
+
+// templates
+app.engine('mustache', mustache());
+app.set('views', './src/views/');
+app.set('view engine', 'mustache');
 
 // start up
 app.listen(PORT, () => console.log('Server started up on port ' + PORT));
